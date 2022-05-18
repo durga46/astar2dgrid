@@ -27,6 +27,7 @@ Pass all the values to the GirdProblem, and print the solution path.
 ## Draw the 2D 
 
 ## PROGRAM
+```python
 %matplotlib inline
 import matplotlib.pyplot as plt
 import random
@@ -35,8 +36,10 @@ import sys
 from collections import defaultdict, deque, Counter
 from itertools import combinations
 import heapq
+```
 ## Problems
 This is the abstract class. Specific problem domains will subclass this.
+```python
 class Problem(object):
     """The abstract class for a formal problem. A new domain subclasses this,
     overriding `actions` and `results`, and perhaps other methods.
@@ -59,8 +62,10 @@ class Problem(object):
     def __str__(self):
         return '{0}({1}, {2})'.format(
             type(self).__name__, self.initial, self.goal)
+ ```
 ## Nodes
 This is the Node in the search tree. Helper functions (expand, path_actions, path_states) use this Node class
+```python
 class Node:
     "A Node in a search tree."
     def __init__(self, state, parent=None, action=None, path_cost=0):
@@ -75,7 +80,9 @@ class Node:
 
 failure = Node('failure', path_cost=math.inf) # Indicates an algorithm couldn't find a solution.
 cutoff  = Node('cutoff',  path_cost=math.inf) # Indicates iterative deepening search was cut off.
+```
 ## Helper functions
+```python
 def expand(problem, node):
     "Expand a node, generating the children nodes."
     s = node.state
@@ -97,7 +104,9 @@ def path_states(node):
     if node in (cutoff, failure, None): 
         return []
     return path_states(node.parent) + [node.state]
+ ```
 ## Search Algorithm : Best First Search
+```python
 class PriorityQueue:
     """A queue in which the item with minimum f(item) is always popped first."""
 
@@ -138,7 +147,9 @@ def best_first_search(problem, f):
 
 def g(n): 
     return n.path_cost
+```
 ## 2D Grid Pathfinding Problem
+```python
 class GridProblem(Problem):
     """Finding a path on a 2D grid with obstacles. Obstacles are (x, y) cells."""
 
@@ -188,9 +199,8 @@ grid1 = GridProblem(initial=(1,2), goal =(8,6) ,obstacles=obstacles)
 solution1 = astar_search(grid1)
 
 path_states(solution1)
+```
 ## OUTPUT:
-Screenshot_646
-
 The algorithm is able to find the solution path for the given problem. But the solution path, might not be the shortest path to reach the goal state.
 
 ## RESULT:
