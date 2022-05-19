@@ -26,6 +26,9 @@ Pass all the values to the GirdProblem, and print the solution path.
 
 ## Draw the 2D 
 
+
+![output](https://user-images.githubusercontent.com/75235704/169274081-19ea65f3-b33d-4b3a-9678-e0556178e503.png)
+
 ## PROGRAM
 ```python
 %matplotlib inline
@@ -201,14 +204,10 @@ solution1 = astar_search(grid1)
 path_states(solution1)
 ```
 ## OUTPUT:
+![output 1](https://user-images.githubusercontent.com/75235704/169274362-6eea206b-5321-437f-a931-c41ac673cc02.png)
+
+
 The algorithm is able to find the solution path for the given problem. But the solution path, might not be the shortest path to reach the goal state.
 
 ## RESULT:
 Hence, A* Algorithm was implemented to find the route from the source to the destination point in a 2D gird World.
-
-
-## OUTPUT:
-
-Explain the Completeness and complexity of the algorithm:
-
-## RESULT:
